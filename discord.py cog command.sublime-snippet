@@ -1,0 +1,12 @@
+<snippet>
+	<content><![CDATA[
+@commands.command(
+	aliases = [""], # вариации ввода команды
+	description = "", # описание команды
+	usage = "" # пример использование команды
+) # декоратор, говорящий боту, что создана команда
+async def command(self, ctx, *): #создание функции с командой
+	pass
+]]></content>
+	<tabTrigger>discord.py command cog</tabTrigger>
+</snippet>

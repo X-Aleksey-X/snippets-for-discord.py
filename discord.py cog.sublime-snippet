@@ -1,0 +1,19 @@
+<snippet>
+	<content><![CDATA[
+import discord # импортируем discord.py | pip install discord.py
+from discord.ext import commands # discord.ext - фреймворк для создания команд боту, идёт вместе с discord.py
+import asyncio # для работы с await / asyncio
+
+class CogName(commands.Cog): # создаём класс с когом
+	
+	def __init__(self, bot): # инициализация кога
+		self.bot = bot # создание переменной бота
+
+	# тут будут команды
+
+def setup(bot): # функция
+	bot.add_cog(CogName(bot)) # добавляем ког 
+	print(f"Ког {CogName} готов!") # запуск кога
+]]></content>
+	<tabTrigger>discord.py cog</tabTrigger>
+</snippet>

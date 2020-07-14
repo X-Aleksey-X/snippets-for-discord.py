@@ -1,0 +1,33 @@
+<snippet>
+	<content><![CDATA[
+import discord # импортируем discord.py | pip install discord.py
+from discord.ext import commands # discord.ext - фреймворк для создания команд боту, идёт вместе с discord.py
+import os # встроенная в python библиотека для взаимодействия с системой
+import asyncio # для работы с await / asyncio
+
+bot = commands.Bot(command_prefix='!') # создаём переменную с ботом под названием bot, выставляя стандартный префикс !, можно поменять
+bot.run("Токен бота.") # запуск бота, надо вставить токен бота который можно получить зайдя в https://discord.com/developers/applications в приложение вашего бота
+
+@bot.event
+async def on_ready(): # ивент в библиотеке discord.py, который срабатывает когда бот включается
+	print("Бот запущен!") # вывод в консоль информации о том, что бот был запущен
+
+for filename in os.listdir('./cogs'): # в папке с ботом ищет папку cogs, создайте её если нету, и запихайте туда файлы с когами
+	if filename.endswith('.py'): # ищет файлы с расширением .py (python)
+		bot.load_extension(f'cogs.{filename[:-3]}') загружает в бота (переменная bot) все коги
+
+@bot.command(aliases=["перезапуск", "перезагрузка", "перезапустить"]) # создаём команду для перезапуска когов, обычно используется после обновления кога
+@bot.is_owner # команда для овнера
+async def перезагрузить(ctx, cog): # функция
+	await ctx.message.delete() # удаляем сообщение команды
+		try: # пробуем перезагрузить
+			client.unload_extension(f'cogs.{cog}') # отгружаем ког
+			client.load_extension(f'cogs.{cog}') # загружаем ког
+			await ctx.send(f"{cog} перезагружен!") # пишем об успешной перезагрузке
+			return
+		except: # если не получилось
+			await ctx.send(f"Не удалось перезагрузить {cog}!")
+			return
+]]></content>
+	<tabTrigger>discord.py cogs</tabTrigger>
+</snippet>

@@ -1,0 +1,13 @@
+<snippet>
+	<content><![CDATA[
+e = discord.Embed(title="", description="", url="", color="")
+e.set_author(name="", icon_url="", url="")
+e.add_field(name="", value="", inline=False)
+e.set_thumbnail(url="")
+e.set_image(url="")
+e.set_footer(text="", icon_url="")
+await ctx.send(embed=e)
+]]></content>
+	<tabTrigger>discord.py embed</tabTrigger>
+	<scope>source.python</scope>
+</snippet>
