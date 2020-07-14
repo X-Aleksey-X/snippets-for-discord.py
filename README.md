@@ -1,2 +1,2 @@
 # snippets-for-discord.py
-немного удобных сниппетов для работы с разработкой на библиотеке discord.py в sublime text 3
+Сделал удобные Snippets для разработки на библиотеке **discord.py**, языке **Python**
