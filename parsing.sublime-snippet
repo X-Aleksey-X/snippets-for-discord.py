@@ -8,8 +8,7 @@ headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:76.0) Gec
 full_page = requests.get(site, headers=headers) # отправляем запрос, используя ссылку и юзер агент
 soup = BeautifulSoup(full_page.content, 'html.parser') # парсим контент страницы полностью
 convert = soup.find() # указываем код элемента, который будем парсить
-
-await ctx.send(convert.text) # отправляем результат
+convert = convert.text
 ]]></content>
 	<tabTrigger>discord.py parsing</tabTrigger>
 </snippet>
