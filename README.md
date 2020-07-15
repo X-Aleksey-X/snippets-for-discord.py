@@ -11,7 +11,8 @@
 ### Mac:
 Library/Application Support/Sublime Text 3/Packages/User
 ### Windows:
-AppData/Sublime Text 3/Packages/User
+AppData/Roaming/Sublime Text 3/Packages/User
+
 
 
 ## Сниппеты для когов
@@ -42,7 +43,7 @@ AppData/Sublime Text 3/Packages/User
 #### шаблон для создания команды в коге, который позже будет задействован в вашем боте
 
 
-— встроена строчка с aliases, description, usage
+— встроена строчка с aliases, description, usage, name
 
 — создание функции для команды
 
