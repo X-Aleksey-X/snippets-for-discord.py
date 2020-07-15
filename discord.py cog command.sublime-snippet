@@ -1,7 +1,7 @@
 <snippet>
 	<content><![CDATA[
 @commands.command(
-	name = "", # имя команды
+	name = "", # основное имя команды
 	aliases = [""], # вариации ввода команды
 	description = "", # описание команды
 	usage = "" # пример использование команды
