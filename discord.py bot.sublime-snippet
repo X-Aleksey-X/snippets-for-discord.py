@@ -6,7 +6,7 @@ import asyncio # для работы с await и async
 
 bot = commands.Bot(command_prefix='!') # создаём переменную с ботом под названием bot, выставляя стандартный префикс !, можно поменять
 bot.run("Токен бота.") # запуск бота, надо вставить токен бота который можно получить зайдя в https://discord.com/developers/applications в приложение вашего бота
-bot.remove_command( 'help' )
+bot.remove_command( 'help' ) # удаляем встроенный хелп
 
 @bot.event
 async def on_ready(): # ивент в библиотеке discord.py, который срабатывает когда бот включается
