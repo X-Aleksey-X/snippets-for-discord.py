@@ -68,7 +68,9 @@ AppData/Roaming/Sublime Text 3/Packages/User
 
 
 — встроена строчка c aliases, description, usage
+
 — создание функции для команды
+
 — комментарии
 
 ## Другое
