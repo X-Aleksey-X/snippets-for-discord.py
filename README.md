@@ -72,7 +72,7 @@ AppData/Sublime Text 3/Packages/User
 
 ## Другое
 
-### discord.py full embed
+### discord.py embed
 #### шаблон для создания эмбеда со всеми его настройками
 
 
