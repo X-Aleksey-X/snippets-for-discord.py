@@ -1,0 +1,24 @@
+<snippet>
+	<content><![CDATA[
+@commands.group(
+		name = "", # название команды вызова группы команд
+		aliases=[""], # список вариаций названия команды вызова группы команд
+		description="", # описание группы команд
+		usage = "" # синтаксис использование группы команд
+		)
+async def commands_group(ctx):
+	if not ctx.invoked_subcommand: # если не указана команда из группы
+		await ctx.send("Вы не указали какую команду из группы хотите использовать")
+	elif ctx.invoked_subcommand: # если указана команда из группы
+		await ctx.message.delete()
+@commands_group.command(
+	name = "", # название команды
+	aliases=[""], # список вариаций названия команды
+	description="", # описание команды
+	usage="" # синтаксис использования команды
+	)
+async def commands_group_command(ctx):
+	pass
+]]></content>
+	<tabTrigger>discord.py group</tabTrigger>
+</snippet>
