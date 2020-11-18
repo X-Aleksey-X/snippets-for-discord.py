@@ -1,34 +1,39 @@
 <snippet>
 	<content><![CDATA[
-import discord # импортируем discord.py | pip install discord.py
-from discord.ext import commands # discord.ext - фреймворк для создания команд боту, идёт вместе с discord.py
-import os # встроенная в python библиотека для взаимодействия с системой
-import asyncio # для работы с await / asyncio
+import os
 
-bot = commands.Bot(command_prefix='!') # создаём переменную с ботом под названием bot, выставляя стандартный префикс !, можно поменять
-bot.run("Токен бота.") # запуск бота, надо вставить токен бота который можно получить зайдя в https://discord.com/developers/applications в приложение вашего бота
-bot.remove_command( 'help' ) # удаление встроенной команды хелп, ждите обновление
+import discord
+from discord.ext import commands
+
+
+bot = commands.Bot(command_prefix='!')
+bot.run("Токен бота.")
+
 
 @bot.event
-async def on_ready(): # ивент в библиотеке discord.py, который срабатывает когда бот включается
-	print("Бот запущен!") # вывод в консоль информации о том, что бот был запущен
+async def on_ready():
+	print(f"Бот {bot.user} с ID {bot.user.id} был запущен!")
 
-for filename in os.listdir('./cogs'): # в папке с ботом ищет папку cogs, создайте её если нету, и запихайте туда файлы с когами
-	if filename.endswith('.py'): # ищет файлы с расширением .py (python)
-		bot.load_extension(f'cogs.{filename[:-3]}') # загружает в бота (переменная bot) все коги
+for filename in os.listdir('./cogs'): # В папке с ботом ищет папку cogs, создайте её если нету, и запихайте туда файлы с когами
+	if filename.endswith('.py'): # Ищет файлы с расширением .py (python)
+		bot.load_extension(f'cogs.{filename[:-3]}') # Загружает в бота все коги
 
-@bot.command(name="перезагрузить",aliases=["перезапуск", "перезагрузка", "перезапустить", "reload"],description="Перезагрузить ког", usage="перезагрузить [название кога]") # создаём команду для перезапуска когов, обычно используется после обновления кога
-@commands.is_owner() # команда для овнера
-async def function_reloading(ctx, cog): # функция
-	await ctx.message.delete() # удаляем сообщение команды
-		try: # пробуем перезагрузить
-			bot.unload_extension(f'cogs.{cog}') # отгружаем ког
-			bot.load_extension(f'cogs.{cog}') # загружаем ког
-			await ctx.send(f"{cog} перезагружен!") # пишем об успешной перезагрузке
-			return
-		except: # если не получилось
+@bot.command(
+		name="перезагрузить",
+		aliases=["перезапуск", "перезагрузка", "перезапустить", "reload"],
+		description="Перезагрузить ког", usage="перезагрузить [название кога]"
+		)
+@commands.is_owner()
+async def function_reloading(ctx, cog):
+	await ctx.message.delete()
+		try:
+			bot.reload_extension(f'cogs.{cog}')
+			await ctx.send(f"{cog} перезагружен!")
+			return 1
+
+		except:
 			await ctx.send(f"Не удалось перезагрузить {cog}!")
-			return
+			return 1
 ]]></content>
 	<tabTrigger>discord.py cogs</tabTrigger>
 </snippet>
