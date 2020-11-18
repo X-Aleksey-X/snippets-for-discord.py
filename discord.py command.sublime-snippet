@@ -1,11 +1,11 @@
 <snippet>
 	<content><![CDATA[
 @bot.command(
-	aliases = [""], # вариации ввода команды
-	description = "", # описание команды
-	usage = "" # пример использование команды
-) # декоратор, говорящий боту, что создана команда
-async def command(ctx, *): #создание функции с командой
+	aliases = [""],
+	description = "",
+	usage = ""
+)
+async def command(ctx, *):
 	pass
 ]]></content>
 	<tabTrigger>discord.py command</tabTrigger>
