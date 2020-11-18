@@ -1,12 +1,12 @@
 <snippet>
 	<content><![CDATA[
 @commands.command(
-	name = "", # основное имя команды
-	aliases = [""], # вариации ввода команды
-	description = "", # описание команды
-	usage = "" # пример использование команды
-) # декоратор, говорящий боту, что создана команда
-async def command(self, ctx, *): #создание функции с командой
+	name = "",
+	aliases = [""],
+	description = "",
+	usage = ""
+)
+async def command(self, ctx, *):
 	pass
 ]]></content>
 	<tabTrigger>discord.py command cog</tabTrigger>
