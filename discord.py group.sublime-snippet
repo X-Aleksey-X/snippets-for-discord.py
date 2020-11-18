@@ -1,21 +1,27 @@
 <snippet>
 	<content><![CDATA[
 @commands.group(
-		name = "", # название команды вызова группы команд
-		aliases=[""], # список вариаций названия команды вызова группы команд
-		description="", # описание группы команд
-		usage = "" # синтаксис использование группы команд
+		name = "",
+		aliases=[""],
+  		description="",
+  		usage = ""
 		)
 async def commands_group(ctx):
-	if not ctx.invoked_subcommand: # если не указана команда из группы
+	"""
+	Создание группы команд со встроенной проверкой, была ли вызвана команда из группы.
+	"""
+
+	if not ctx.invoked_subcommand:
 		await ctx.send("Вы не указали какую команду из группы хотите использовать")
-	elif ctx.invoked_subcommand: # если указана команда из группы
+
+	elif ctx.invoked_subcommand:
 		await ctx.message.delete()
+
 @commands_group.command(
-	name = "", # название команды
-	aliases=[""], # список вариаций названия команды
-	description="", # описание команды
-	usage="" # синтаксис использования команды
+	name = "",
+	aliases=[""],
+	description="",
+	usage=""
 	)
 async def commands_group_command(ctx):
 	pass
